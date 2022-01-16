@@ -8,7 +8,6 @@ import { useEffect } from "react";
 
 function Listing() {
 
-
     const [pageNumber, setPageNumber] = useState(0);
     const [page, setPage] = useState<MoviePage>({
         content: [],
@@ -31,10 +30,13 @@ function Listing() {
             });
     }, [pageNumber]);
 
+    const handlePageChange = (newPageNumber : number) => {
+        setPageNumber(newPageNumber)
+    }
 
     return (
         <>
-            <Pagination />
+            <Pagination page={page} onChange={handlePageChange}  />
 
             <div className="container">
                 <div className="row">
